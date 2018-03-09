@@ -31,7 +31,6 @@ int main()
     struct sensors_ dig;
     int start = 1;
     int aloitus = 0;
-    int stop = 0;
     int maapallo = 0;
     int pyorea = 0;
     int direction;
