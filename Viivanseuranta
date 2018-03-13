@@ -51,8 +51,8 @@ int main()
             //poistuu loopista ja pysähtyy odottamaan IR 
             while(start < 1){
                 motor_start();
-                reflectance_read(&ref);         //0-23999
-                reflectance_digital(&dig);      //0 tai 1, 0=musta 1=valkoinen
+                reflectance_read(&ref);         
+                reflectance_digital(&dig);      
                 
                 if(ref.l1==23999 && ref.l3==23999 && ref.r1==23999 && ref.r3==23999){
                     //kaikki sensorit mustalla
@@ -77,8 +77,8 @@ int main()
 
         //Viivan seuraaminen
         while(stop<3){
-                reflectance_read(&ref);         //0-23999
-                reflectance_digital(&dig);      //0 tai 1, 0=musta 1=valkoinen
+                reflectance_read(&ref);         
+                reflectance_digital(&dig);      
             
             if(ref.l1==23999 && ref.l3==23999 && ref.r1==23999 && ref.r3==23999){
                 //kaikki sensorit mustalla
