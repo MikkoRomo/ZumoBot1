@@ -44,7 +44,6 @@ int main()
         //Viivalle ajo, jää odottamaan napinpainallusta (looppi estää get_IR() kutsumisen)
         while(aloitus == 0){
             if(SW1_Read()==0){
-                printf("\n test\n");
                 start = 0;
                 aloitus = 1;
             }
