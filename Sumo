@@ -30,8 +30,6 @@ int main()
     struct sensors_ dig;
     int start = 1;
     int aloitus = 0;
-    int maapallo = 0;
-    int pyorea = 0;
     int direction;
     
     srand(time(NULL)); 
@@ -89,26 +87,12 @@ int main()
         
         motor_forward (255,200);
         
-        while (maapallo==pyorea){
+        while (1){
                 
             motor_forward(200,5);
             
             direction = rand() % 2;         // valitsee satunnaisen suunnan, 0 = oikea, 1 = vasen
             
-            /*ajaa kovaa vauhtia eteenpäin kun tunnistaa jotain lähellä
-            if(Ultra_GetDistance()<15){
-                while(1){
-                    reflectance_read(&ref);         
-                    reflectance_digital(&dig);      
-                    motor_forward(255,5);
-                    //kääntyy mustalta viivalta pois, eikä aja enää kovaa vauhtia eteenpäin
-                    if(ref.l1==23999 && ref.l3==23999 && ref.r1==23999 && ref.r3==23999){
-                        motor_backward(200,350);
-                        motor_turn (150,0,600);
-                        break;   
-                    }
-                }
-            }*/
             reflectance_read(&ref);         
             reflectance_digital(&dig);      
             
@@ -118,23 +102,6 @@ int main()
                     motor_turn (0,150,700);
                 }else{
                    motor_turn (150,0,700);    
-                }
-                motor_turn (150,0,600);     //?
-            }
-            if(ref.r3==23999 && dig.l3){
-                motor_backward(200,500);
-                if(direction == 1){
-                    motor_turn (0,150,800);
-                }else{
-                   motor_turn (150,0,800);    
-                }
-            }
-             if(ref.l3==23999 && dig.r3){
-                motor_backward(200,500);
-                if(direction == 0){
-                    motor_turn (150,0,800);
-                }else{
-                   motor_turn (0,150,800);    
                 }
             }
         }
